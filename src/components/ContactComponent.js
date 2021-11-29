@@ -30,11 +30,29 @@ class Contact extends Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleSubmit(values) {
         console.log("Current state is:" + JSON.stringify(values));
         alert("Current state is:" + JSON.stringify(values));
+    }
+
+    handleBlur = (field) => () => {
+        this.setState({
+            touched: {...this.state.touched, [field]: true}
+        });
+
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+
+        this.setState ({
+            [name]: value
+        })
     }
 
     render() {
