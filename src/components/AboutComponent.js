@@ -76,7 +76,7 @@ function About(props) {
 
 function RenderPartner(props) {
 
-const { name, image, featured, description } = props.partner;
+const { name, description } = props.partner;
 if (props.partner) {
     return(
             <React.Fragment>
